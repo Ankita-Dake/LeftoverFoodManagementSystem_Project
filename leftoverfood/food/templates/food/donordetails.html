@@ -1,0 +1,46 @@
+{% extends 'food/main.html' %}
+{% load static %}
+{% block content %}
+<h1>Donor profile</h1>
+{% if donordetails %}
+<!--<h1>show data</h1>-->
+<!--<h3>{{agentprofile}}</h3>-->
+<style>
+    th,td{
+    border:1px black solid;
+    }
+    th{
+     color:white;
+     background-color:gray;
+     text-align:center;
+    }
+</style>
+<body id="bg" style=" background-repeat:no-repeat;background-attachment:fixed;
+    background-size:100% 100%; background-image:url('{% static 'images/admin.jpg' %}'); ">
+<table>
+    <tr>
+        <th>Donor name</th>
+        <th>email</th>
+        <th>username</th>
+        <th>contact</th>
+        <th>Restaurant name</th>
+        <th>Restaurant address</th>
+        <th>City</th>
+    </tr>
+    {% for ap in donordetails %}
+    <tr>
+        <td>{{ap.name}}</td>
+        <td> {{ap.email}}</td>
+        <td> {{ap.username}}</td>
+        <td> {{ap.contact}}</td>
+        <td> {{ap.restaurantname}}</td>
+        <td> {{ap.restaurantaddress}}</td>
+        <td>{{ap.city}}</td>
+    </tr>
+   {% endfor %}
+</table>
+{% else %}
+<h1>no data</h1>
+{% endif %}
+</body>
+{% endblock content %}

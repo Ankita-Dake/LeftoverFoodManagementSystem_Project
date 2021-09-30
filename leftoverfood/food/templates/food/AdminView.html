@@ -1,0 +1,90 @@
+{% extends 'food/main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    th,td{
+    border:1px black solid;
+    }
+    th{
+     color:white;
+     background-color:gray;
+     text-align:center;
+    }
+</style>
+<body id="bg" style=" background-repeat:no-repeat;background-attachment:fixed;
+    background-size:100% 100%; background-image:url('{% static 'images/admin.jpg' %}'); ">
+<h2 style="color:purple; font-style:italic;">Donor Food Request</h2>
+<a href="/logout">Logout</a>
+{% if AdminView %}
+<!--<h1>show data</h1>-->
+<!--<h3>{{agentprofile}}</h3>-->
+<!--<link rel="stylesheet" href="{% static 'css/style.css' %}"/>-->
+<table id="demo">
+    <tr>
+        <th>Donor_name</th>
+        <th>email</th>
+        <th>contact</th>
+        <th>Donor_address</th>
+        <th>restaurant_name</th>
+        <th>restaurant_address</th>
+        <th>TypeOfFood</th>
+        <th>DateOfCooking</th>
+        <th>Quantity</th>
+        <th>city</th>
+    </tr>
+    {% for ap in AdminView %}
+    <tr>
+        <td>{{ap.Donor_name}}</td>
+        <td> {{ap.email}}</td>
+        <td> {{ap.contact}}</td>
+        <td> {{ap.Donor_address}}</td>
+        <td> {{ap.restaurant_name}}</td>
+        <td> {{ap.restaurant_address}}</td>
+        <td> {{ap.TypeOfFood}}</td>
+        <td> {{ap.DateOfCooking}}</td>
+        <td> {{ap.Quantity}}</td>
+        <td>{{ ap.city}} </td>
+    </tr>
+   {% endfor %}
+</table>
+{% else %}
+<h1>no data</h1>
+{% endif %}
+<br><br>
+
+
+<h2 style="color:purple;font-style:italic">agent profile</h2>
+{% if agentprofile %}
+<!--<h1>show data</h1>-->
+<!--<h3>{{agentprofile}}</h3>-->
+<table>
+    <tr>
+        <th>name</th>
+        <th>email</th>
+        <th>username</th>
+        <th>password</th>
+        <th>contact</th>
+        <th>address</th>
+        <th>city</th>
+    </tr>
+    {% for ap in agentprofile %}
+    <tr>
+        <td>{{ap.name}}</td>
+        <td> {{ap.email}}</td>
+        <td> {{ap.username}}</td>
+        <td> {{ap.password}}</td>
+        <td> {{ap.contact}}</td>
+        <td> {{ap.address}}</td>
+        <td>{{ ap.city}} </td>
+    </tr>
+   {% endfor %}
+</table>
+{% else %}
+<h1>no data</h1>
+{% endif %}
+
+
+
+</body>
+{% endblock content %}

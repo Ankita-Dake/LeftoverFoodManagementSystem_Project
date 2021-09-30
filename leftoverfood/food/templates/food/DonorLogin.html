@@ -1,0 +1,65 @@
+{% extends 'food/main.html' %}
+{% load static %}
+{% block content %}
+<div class="container" style=" background-color: lightgrey;
+  width: 500px;
+  border: 1px solid green;
+  padding: 50px;
+  margin-left: 450px;">
+
+    <p style="font-size:20px; text-align:center;">WELCOME...!!!</p>
+        <p>Thank you for showing interest in donating food to needy people.</p>
+       <p> Dear sir, On behalf of our organization, I would like to thank you for the contribution of food for poor
+        people.I would like to suggest that you can also come with us to serve the food to them. I am sure it will also make you
+        feel happy.
+      </p>
+</div>
+<br>
+<!-- Button trigger modal -->
+<div style="text-align:center;">
+<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal" style="text-align:center;">
+    Login
+</button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Login Here</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" style="color:black;font-weight:bold;font-size:20px;">
+                    {% csrf_token %}
+                    {% for dr in form %}
+                    {% endfor %}
+                    {{form.as_p}}
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<body id="bg" style=" background-repeat:no-repeat;background-attachment:fixed;-->
+<!--    background-size:100% 100%; background-image:url('{% static 'images/login.jpg' %}'); ">-->
+<!--<link rel="stylesheet" href="{% static 'css/style.css' %}"/>-->
+<!--<div class="container" style="text-align:center; padding-top:50px;">-->
+<!--<form action="" method="post" style="color:black;font-weight:bold;font-size:20px;" >-->
+<!--    {% csrf_token %}-->
+<!--    {% for dr in form %}-->
+<!--    {% endfor %}-->
+<!--    {{form.as_p}}-->
+<!--    <input type="submit" value="login" >-->
+<!--</form>-->
+<!--</div>-->
+<!--</body>-->
+{% endblock content %}

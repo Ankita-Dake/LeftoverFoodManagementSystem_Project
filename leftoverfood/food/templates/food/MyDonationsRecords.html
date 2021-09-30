@@ -1,0 +1,48 @@
+{% extends 'food/main.html' %}
+{% load static %}
+{% block content %}
+<style>
+     th,td{
+    border:1px black solid;
+    }
+    th{
+     color:white;
+     background-color:gray;
+     text-align:center;
+    }
+</style>
+<body id="bg" style=" background-repeat:no-repeat;background-attachment:fixed;
+    background-size:100% 100%; background-image:url('{% static 'images/admin.jpg' %}'); ">
+<h1>agent profile</h1>
+{% if MyDonationsRecords %}
+<!--<h1>show data</h1>-->
+<!--<h3>{{agentprofile}}</h3>-->
+<table>
+    <tr>
+        <th>Agent_name</th>
+        <th>email</th>
+        <th>Donor_name</th>
+        <th>DateofCollectingFood</th>
+        <th>TimeOfCollectingFood</th>
+        <th>Quantity</th>
+        <th>Orphanage_name</th>
+        <th>City</th>
+    </tr>
+    {% for ap in MyDonationsRecords %}
+    <tr>
+        <td>{{ap.Agent_name}}</td>
+        <td> {{ap.email}}</td>
+        <td> {{ap.Donor_name}}</td>
+        <td> {{ap.DateOfCollectingFood}}</td>
+        <td> {{ap.TimeOfCollectingFood}}</td>
+        <td> {{ap.Quantity}}</td>
+        <td>{{ ap.Orphanage_name}} </td>
+        <td>{{ap.city}}</td>
+    </tr>
+   {% endfor %}
+</table>
+{% else %}
+<h1>no data</h1>
+{% endif %}
+</body>
+{% endblock content %}

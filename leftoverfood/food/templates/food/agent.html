@@ -1,0 +1,31 @@
+{% extends 'food/main.html' %}
+{% load static %}
+{% block content %}
+
+<body id="bg" style=" background-repeat:no-repeat;background-attachment:fixed;
+    background-size:100% 100%; background-image:url('{% static 'images/.jpg' %}'); "
+      xmlns="http://www.w3.org/1999/html">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+             <img class="img-fluid" src="{% static 'images/img2.jpg' %}" alt="Chania" height="80%" >
+        </div>
+
+        <div class="col-md-4" style="background-color:pink;">
+               <h4>Register Here</h4>
+            <form action="" method="post" >
+                {% csrf_token %}
+                <div class="form-group border" >
+                   {{form}}
+                </div>
+                <input style="margin-left:150px;" type="submit" value="submit">
+            </form>
+        </div>
+        <div class="col-md-4">
+           <img class="img-fluid" src="{% static 'images/agent.jpeg' %}" alt="Chania" >
+        </div>
+    </div>
+</div>
+
+</body>
+{% endblock content %}

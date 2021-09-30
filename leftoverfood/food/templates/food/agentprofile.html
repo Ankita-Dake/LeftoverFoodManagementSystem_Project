@@ -1,0 +1,86 @@
+{% extends 'food/main.html' %}
+{% load static %}
+{% block content %}
+<style>
+     th,td{
+    border:1px black solid;
+    }
+    th{
+     color:white;
+     background-color:gray;
+     text-align:center;
+    }
+</style>
+<body id="bg" style=" background-repeat:no-repeat;background-attachment:fixed;
+    background-size:100% 100%; background-image:url('{% static 'images/admin.jpg' %}'); ">
+<h1 >agent profile</h1>
+{% if agentprofile %}
+<!--<h1>show data</h1>-->
+<!--<h3>{{agentprofile}}</h3>-->
+<table>
+    <tr>
+        <th>name</th>
+        <th>email</th>
+        <th>username</th>
+        <th>password</th>
+        <th>contact</th>
+        <th>address</th>
+        <th>city</th>
+    </tr>
+    {% for ap in agentprofile %}
+    <tr>
+        <td>{{ap.name}}</td>
+        <td> {{ap.email}}</td>
+        <td> {{ap.username}}</td>
+        <td> {{ap.password}}</td>
+        <td> {{ap.contact}}</td>
+        <td> {{ap.address}}</td>
+        <td>{{ ap.city}} </td>
+    </tr>
+   {% endfor %}
+</table>
+{% else %}
+<h1>no data</h1>
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--{% if agentpro %}-->
+<!--<h1>show data</h1>-->
+<!--<h3>{{agentpro}}</h3>-->
+<!--<table>-->
+<!--    <tr>-->
+<!--        <th>firstname</th>-->
+<!--        <th>lastname</th>-->
+<!--        <th>email</th>-->
+<!--        <th>password</th>-->
+<!--        <th>address</th>-->
+<!--        <th>city</th>-->
+<!--    </tr>-->
+<!--    {% for ap in agentpro %}-->
+<!--    <tr>-->
+<!--        <td> {{ap.firstname}}</td>-->
+<!--        <td>{{ap.lastname}}</td>-->
+<!--        <td> {{ap.email}}</td>-->
+<!--        <td> {{ap.password}}</td>-->
+<!--        <td>{{ap.address}}</td>-->
+<!--        <td>{{ap.city}}</td>-->
+<!--    </tr>-->
+<!--    {%  endfor %}-->
+<!--</table>-->
+<!--<% else %}-->
+<!--<h3>no data</h3>-->
+<!--{% endif %}-->
+</body>
+{% endblock content %}
